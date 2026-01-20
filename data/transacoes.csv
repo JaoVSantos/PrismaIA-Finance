@@ -1,0 +1,126 @@
+data;tipo;valor;descricao
+2025-08-01;entrada;28000,00;Recebimento contrato manutenção - Cliente Alfa
+2025-08-02;saida;3200,00;Folha de pagamento - Administrativo
+2025-08-03;saida;1850,00;Compra de peças - Fornecedor PeçasSul
+2025-08-04;saida;420,00;Combustível - Posto Avenida
+2025-08-05;saida;680,00;Internet e telefone - Telecom BR
+2025-08-06;saida;129,90;Google Workspace - assinatura mensal
+2025-08-07;saida;950,00;Serviços contábeis - ContabFácil
+2025-08-08;entrada;5400,00;Recebimento ordem de serviço - Cliente Beta
+2025-08-09;saida;310,00;Pedágio e estacionamento - Viagem técnica
+2025-08-10;saida;2400,00;Compra de EPIs - Segurança Forte
+2025-08-11;saida;780,00;Manutenção veículo - AutoCenter
+2025-08-12;entrada;8900,00;Recebimento contrato mensal - Cliente Gama
+2025-08-13;saida;520,00;Aluguel impressoras - OfficeRent
+2025-08-14;saida;399,00;Material de escritório - Papelaria Central
+2025-08-15;saida;2100,00;Peças e insumos - Fornecedor MetalParts
+2025-08-16;saida;89,90;Assinatura ferramenta - Notion
+2025-08-17;entrada;3200,00;Reembolso despesas - Cliente Beta
+2025-08-18;saida;1550,00;Frete de compra - Transportadora Rápida
+2025-08-19;saida;260,00;Tarifas bancárias - Banco
+2025-08-20;entrada;12500,00;Recebimento OS emergencial - Cliente Delta
+
+2025-09-01;entrada;29500,00;Recebimento contrato manutenção - Cliente Alfa
+2025-09-02;saida;3250,00;Folha de pagamento - Administrativo
+2025-09-03;saida;2100,00;Compra de peças - Fornecedor PeçasSul
+2025-09-04;saida;480,00;Combustível - Posto Avenida
+2025-09-05;saida;680,00;Internet e telefone - Telecom BR
+2025-09-06;saida;129,90;Google Workspace - assinatura mensal
+2025-09-07;saida;950,00;Serviços contábeis - ContabFácil
+2025-09-08;entrada;6100,00;Recebimento ordem de serviço - Cliente Beta
+2025-09-09;saida;340,00;Pedágio e estacionamento - Viagem técnica
+2025-09-10;saida;1800,00;Compra de EPIs - Segurança Forte
+2025-09-11;saida;890,00;Manutenção veículo - AutoCenter
+2025-09-12;entrada;9100,00;Recebimento contrato mensal - Cliente Gama
+2025-09-13;saida;520,00;Aluguel impressoras - OfficeRent
+2025-09-14;saida;420,00;Material de escritório - Papelaria Central
+2025-09-15;saida;2350,00;Peças e insumos - Fornecedor MetalParts
+2025-09-16;saida;89,90;Assinatura ferramenta - Notion
+2025-09-17;entrada;2600,00;Recebimento OS pequena - Cliente Épsilon
+2025-09-18;saida;1320,00;Frete de compra - Transportadora Rápida
+2025-09-19;saida;310,00;Tarifas bancárias - Banco
+2025-09-20;entrada;14100,00;Recebimento OS emergencial - Cliente Delta
+
+2025-10-01;entrada;30500,00;Recebimento contrato manutenção - Cliente Alfa
+2025-10-02;saida;3300,00;Folha de pagamento - Administrativo
+2025-10-03;saida;1980,00;Compra de peças - Fornecedor PeçasSul
+2025-10-04;saida;510,00;Combustível - Posto Avenida
+2025-10-05;saida;680,00;Internet e telefone - Telecom BR
+2025-10-06;saida;129,90;Google Workspace - assinatura mensal
+2025-10-07;saida;980,00;Serviços contábeis - ContabFácil
+2025-10-08;entrada;5900,00;Recebimento ordem de serviço - Cliente Beta
+2025-10-09;saida;355,00;Pedágio e estacionamento - Viagem técnica
+2025-10-10;saida;2100,00;Compra de EPIs - Segurança Forte
+2025-10-11;saida;920,00;Manutenção veículo - AutoCenter
+2025-10-12;entrada;9400,00;Recebimento contrato mensal - Cliente Gama
+2025-10-13;saida;520,00;Aluguel impressoras - OfficeRent
+2025-10-14;saida;460,00;Material de escritório - Papelaria Central
+2025-10-15;saida;2600,00;Peças e insumos - Fornecedor MetalParts
+2025-10-16;saida;89,90;Assinatura ferramenta - Notion
+2025-10-17;entrada;3100,00;Recebimento OS pequena - Cliente Épsilon
+2025-10-18;saida;1480,00;Frete de compra - Transportadora Rápida
+2025-10-19;saida;320,00;Tarifas bancárias - Banco
+2025-10-20;entrada;15200,00;Recebimento OS emergencial - Cliente Delta
+
+2025-11-01;entrada;29800,00;Recebimento contrato manutenção - Cliente Alfa
+2025-11-02;saida;3400,00;Folha de pagamento - Administrativo
+2025-11-03;saida;2250,00;Compra de peças - Fornecedor PeçasSul
+2025-11-04;saida;540,00;Combustível - Posto Avenida
+2025-11-05;saida;680,00;Internet e telefone - Telecom BR
+2025-11-06;saida;129,90;Google Workspace - assinatura mensal
+2025-11-07;saida;980,00;Serviços contábeis - ContabFácil
+2025-11-08;entrada;5600,00;Recebimento ordem de serviço - Cliente Beta
+2025-11-09;saida;360,00;Pedágio e estacionamento - Viagem técnica
+2025-11-10;saida;2350,00;Compra de EPIs - Segurança Forte
+2025-11-11;saida;960,00;Manutenção veículo - AutoCenter
+2025-11-12;entrada;9200,00;Recebimento contrato mensal - Cliente Gama
+2025-11-13;saida;520,00;Aluguel impressoras - OfficeRent
+2025-11-14;saida;510,00;Material de escritório - Papelaria Central
+2025-11-15;saida;2400,00;Peças e insumos - Fornecedor MetalParts
+2025-11-16;saida;89,90;Assinatura ferramenta - Notion
+2025-11-17;entrada;2700,00;Recebimento OS pequena - Cliente Épsilon
+2025-11-18;saida;1390,00;Frete de compra - Transportadora Rápida
+2025-11-19;saida;340,00;Tarifas bancárias - Banco
+2025-11-20;entrada;13900,00;Recebimento OS emergencial - Cliente Delta
+
+2025-12-01;entrada;31500,00;Recebimento contrato manutenção - Cliente Alfa
+2025-12-02;saida;3550,00;Folha de pagamento - Administrativo
+2025-12-03;saida;2600,00;Compra de peças - Fornecedor PeçasSul
+2025-12-04;saida;560,00;Combustível - Posto Avenida
+2025-12-05;saida;680,00;Internet e telefone - Telecom BR
+2025-12-06;saida;129,90;Google Workspace - assinatura mensal
+2025-12-07;saida;1100,00;Serviços contábeis - ContabFácil
+2025-12-08;entrada;6400,00;Recebimento ordem de serviço - Cliente Beta
+2025-12-09;saida;390,00;Pedágio e estacionamento - Viagem técnica
+2025-12-10;saida;2500,00;Compra de EPIs - Segurança Forte
+2025-12-11;saida;1020,00;Manutenção veículo - AutoCenter
+2025-12-12;entrada;9800,00;Recebimento contrato mensal - Cliente Gama
+2025-12-13;saida;520,00;Aluguel impressoras - OfficeRent
+2025-12-14;saida;560,00;Material de escritório - Papelaria Central
+2025-12-15;saida;2850,00;Peças e insumos - Fornecedor MetalParts
+2025-12-16;saida;89,90;Assinatura ferramenta - Notion
+2025-12-17;entrada;3300,00;Recebimento OS pequena - Cliente Épsilon
+2025-12-18;saida;1620,00;Frete de compra - Transportadora Rápida
+2025-12-19;saida;380,00;Tarifas bancárias - Banco
+2025-12-20;entrada;16500,00;Recebimento OS emergencial - Cliente Delta
+
+2026-01-01;entrada;32200,00;Recebimento contrato manutenção - Cliente Alfa
+2026-01-02;saida;3600,00;Folha de pagamento - Administrativo
+2026-01-03;saida;2400,00;Compra de peças - Fornecedor PeçasSul
+2026-01-04;saida;590,00;Combustível - Posto Avenida
+2026-01-05;saida;680,00;Internet e telefone - Telecom BR
+2026-01-06;saida;129,90;Google Workspace - assinatura mensal
+2026-01-07;saida;1100,00;Serviços contábeis - ContabFácil
+2026-01-08;entrada;6600,00;Recebimento ordem de serviço - Cliente Beta
+2026-01-09;saida;410,00;Pedágio e estacionamento - Viagem técnica
+2026-01-10;saida;2750,00;Compra de EPIs - Segurança Forte
+2026-01-11;saida;980,00;Manutenção veículo - AutoCenter
+2026-01-12;entrada;10100,00;Recebimento contrato mensal - Cliente Gama
+2026-01-13;saida;520,00;Aluguel impressoras - OfficeRent
+2026-01-14;saida;610,00;Material de escritório - Papelaria Central
+2026-01-15;saida;3100,00;Peças e insumos - Fornecedor MetalParts
+2026-01-16;saida;89,90;Assinatura ferramenta - Notion
+2026-01-17;entrada;3500,00;Recebimento OS pequena - Cliente Épsilon
+2026-01-18;saida;1710,00;Frete de compra - Transportadora Rápida
+2026-01-19;saida;390,00;Tarifas bancárias - Banco
+2026-01-20;entrada;17200,00;Recebimento OS emergencial - Cliente Delta

@@ -1,0 +1,55 @@
+termo;categoria;definicao;exemplo;observacao
+Regime de competência;contabil;Registra receitas e despesas no período em que ocorrem, mesmo sem pagamento/recebimento no dia.;"Nota fiscal emitida em 2026-01 conta como receita de 2026-01, mesmo recebendo em 2026-02.";Útil para DRE e análise de desempenho.
+Regime de caixa;caixa;Registra entradas e saídas na data em que o dinheiro efetivamente entra ou sai.;"Boleto pago em 2026-02 impacta o caixa de 2026-02, mesmo sendo despesa de 2026-01.";Útil para gestão de liquidez.
+DRE;dre;Demonstrativo de Resultado do Exercício: resume receitas, custos e despesas para apurar lucro/prejuízo.;"Receita - CSP/CMV - despesas operacionais = resultado.";Versão gerencial pode variar do padrão contábil.
+Receita bruta;dre;Total de vendas/serviços antes de deduções (impostos, devoluções, descontos).;"Faturamento total do mês antes de impostos e devoluções.";Pode ser diferente de receita líquida.
+Receita líquida;dre;Receita após deduções (impostos sobre vendas, devoluções, descontos).;"Receita bruta 100k - impostos 8k = receita líquida 92k.";Base para margem bruta.
+CSP;dre;Custo dos Serviços Prestados: custos diretamente ligados à entrega do serviço.;"Mão de obra técnica e peças usadas em uma ordem de serviço.";Equivalente ao CMV em serviços.
+CMV;dre;Custo da Mercadoria Vendida: custos diretamente ligados à mercadoria vendida.;"Custo de compra do produto vendido em varejo/distribuição.";Em serviços, normalmente usa-se CSP.
+Margem bruta;indicadores;Receita líquida menos CSP/CMV, indicando eficiência de entrega do produto/serviço.;"Receita líquida 100k - CSP 60k = margem bruta 40k (40%).";Analisar por produto/contrato ajuda muito.
+Despesas operacionais;dre;Despesas necessárias para operar o negócio (adm, comercial, TI etc.).;"Aluguel, salários administrativos, marketing, software.";Não incluem CSP/CMV.
+Despesas administrativas;dre;Despesas relacionadas à administração da empresa.;"Financeiro, RH, aluguel do escritório, contabilidade.";Separar por centro de custo ajuda controle.
+Despesas comerciais;dre;Despesas ligadas a vendas e relacionamento com clientes.;"Comissões, anúncios, viagens comerciais.";Boa para medir CAC/eficiência comercial.
+Despesas financeiras;dre;Custos relacionados a juros, tarifas e operações financeiras.;"Juros de empréstimo, tarifa bancária, antecipação de recebíveis.";Impactam resultado e caixa.
+EBITDA;indicadores;Indicador de desempenho operacional antes de juros, impostos, depreciação e amortização.;"Aproxima geração operacional de caixa, mas não é caixa real.";Pode variar por definição interna.
+Lucro líquido;indicadores;Resultado final após custos, despesas, financeiras e impostos.;"Linha final da DRE após IR/CSLL (se aplicável).";Em DRE gerencial pode excluir itens não recorrentes.
+Centro de custo;processos;Agrupador para analisar despesas/custos por área (Adm, Operações, Comercial etc.).;"Despesa de software lançada no CC TI.";Ajuda accountability e orçamento.
+Plano de contas;processos;Estrutura de categorias contábeis/gerenciais para classificar lançamentos.;"Receitas > Serviços; Despesas > TI > SaaS.";Base para relatórios consistentes.
+Classificação de lançamento;processos;Ato de atribuir conta e centro de custo a uma transação.;"‘Google Workspace’ → Despesa de TI / SaaS, CC TI.";Pode usar regras + revisão humana.
+Conciliação;processos;Comparação entre extrato bancário e lançamentos internos para garantir consistência.;"Pagamento no banco deve existir no razão como saída confirmada.";MVP pode ser simplificado.
+Contas a pagar (A/P);caixa;Títulos e obrigações a serem pagos (fornecedores, impostos, folha).;"Boleto de fornecedor com vencimento em 2026-01-25.";Fundamental para projeção de caixa.
+Contas a receber (A/R);caixa;Valores que a empresa tem a receber de clientes.;"Fatura emitida com vencimento em 2026-02-10.";Base para aging e projeção.
+Aging de recebíveis;caixa;Distribuição das contas a receber por faixas de atraso.;"0–15, 16–30, 31–60, 60+ dias.";Usado para análise de inadimplência.
+Inadimplência;caixa;Valores em atraso em contas a receber.;"Cliente com fatura vencida há 45 dias.";Pode exigir provisão de perda.
+Provisão de inadimplência;contabil;Estimativa de perdas por clientes que podem não pagar.;"Provisão de 2% da carteira 60+ dias.";Política varia por empresa.
+Capital de giro;indicadores;Recursos necessários para manter a operação (estoque, A/R, A/P e caixa).;"Crescer vendas pode exigir mais capital de giro.";Afeta necessidade de crédito.
+Ciclo de caixa;indicadores;Tempo entre pagar fornecedores e receber de clientes.;"Paga em 15 dias e recebe em 45 → ciclo 30 dias.";Reduzir ciclo melhora liquidez.
+Prazo médio de recebimento (PMR);indicadores;Média de dias para receber vendas.;"Recebe em média em 38 dias.";Mede eficiência de cobrança.
+Prazo médio de pagamento (PMP);indicadores;Média de dias para pagar fornecedores.;"Paga em média em 22 dias.";Negociação impacta caixa.
+Fluxo de caixa;caixa;Relatório de entradas e saídas em um período.;"Projetar próximos 30 dias usando A/R e A/P.";Pode ser diário/semanal/mensal.
+Caixa projetado;caixa;Estimativa de saldo futuro baseada em entradas/saídas previstas.;"Dia 12 fica negativo sem receber o cliente X.";Depende da qualidade do A/R e A/P.
+Saldo inicial;caixa;Saldo de caixa no início do período analisado.;"Saldo em 2026-01-01: R$ 50.000.";Precisa de fonte (extrato ou cadastro).
+Saldo final;caixa;Saldo de caixa ao final do período analisado.;"Saldo em 2026-01-31 após entradas/saídas.";Não confundir com lucro.
+Orçamento;processos;Planejamento de receitas e despesas por período.;"Orçado de marketing em 2026-01: R$ 10.000.";Base para controle gerencial.
+Realizado vs orçado;indicadores;Comparação do que aconteceu com o que foi planejado.;"Despesa real 12k vs orçado 10k → +2k (20%).";Ajuda identificar desvios.
+Desvio (budget);indicadores;Diferença entre realizado e orçado (valor e percentual).;"Desvio +R$ 2k (+20%).";Define limites de alerta.
+Alçada de aprovação;seguranca;Regra de quem pode aprovar pagamentos/ajustes por valor.;"Acima de 10k precisa aprovação do gerente.";Importante para governança.
+Auditoria;seguranca;Registro de ações e alterações (antes/depois, usuário, motivo).;"Reclassificação de TRX-001 registrada com justificativa.";Essencial se houver escrita.
+Ação de escrita;seguranca;Operação que altera dados (reclassificar, marcar pago/recebido).;"Marcar título como pago muda status no dataset.";Deve exigir confirmação explícita.
+SaaS;processos;Software como serviço, geralmente cobrado mensalmente.;"Google Workspace, Microsoft 365.";Normalmente classificado em TI.
+Tarifa bancária;dre;Custo cobrado pelo banco por serviços/transferências.;"Tarifa de TED/PIX empresarial.";Vai em despesas financeiras.
+Juros;dre;Custo do dinheiro (empréstimos, parcelamentos, atraso).;"Juros de capital de giro.";Pode ser separado de tarifas.
+Antecipação de recebíveis;caixa;Receber antes do prazo em troca de taxa/juros.;"Antecipar cartão para cobrir folha.";Melhora caixa agora, piora resultado financeiro.
+Depreciação;contabil;Reconhecimento da perda de valor de um ativo ao longo do tempo.;"Depreciação de máquinas/veículos.";Afeta DRE, não é saída de caixa imediata.
+Amortização;contabil;Similar à depreciação, aplicada a intangíveis.;"Amortização de software adquirido.";Afeta DRE, não é caixa imediato.
+Item não recorrente;dre;Evento fora do padrão operacional (ganho/perda extraordinária).;"Venda de um equipamento antigo.";Pode ser destacado na análise.
+Competência (mês);processos;Mês ao qual a receita/despesa pertence na apuração.;"Despesa de janeiro lançada como competência 2026-01.";Usado para DRE.
+Status confirmado;processos;Lançamento já realizado (ocorreu de fato).;"Pagamento já efetuado.";Usado para consolidar realizado.
+Status previsto;processos;Lançamento futuro/planejado (ainda não ocorreu).;"Boleto com vencimento futuro em aberto.";Usado para projeção.
+Documento de referência;processos;Identificador ligado ao lançamento (NF, boleto, OS, contrato).;"NF-10392, BOL-9981, OS-221.";Ajuda rastreabilidade.
+Fornecedor;processos;Entidade para quem a empresa paga.;"Locadora de veículos, fornecedor de peças.";Ajuda classificação por histórico.
+Cliente;processos;Entidade que paga a empresa.;"Cliente contrato manutenção planta X.";Usado para A/R e análise de inadimplência.
+Política de classificação;seguranca;Regras internas do que entra em cada conta/centro de custo.;"Frete de compra em CSP/CMV; frete de venda em comercial.";Evita inconsistência entre analistas.
+Fonte do dado;seguranca;Origem do número (arquivo/tabela + filtro).;"base: transacoes.csv; mes=2026-01; regime=competencia.";Obrigatório em respostas numéricas.
+Fora do escopo;seguranca;Pergunta que não pertence ao domínio do agente.;"Previsão do tempo, futebol, notícias gerais.";Agente deve recusar com educação.
+Não consta na base;seguranca;Resposta padrão quando faltam dados para responder.;"Sem extrato bancário, não há saldo disponível.";Agente deve dizer o que falta para responder.

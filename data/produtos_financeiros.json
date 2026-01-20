@@ -1,0 +1,166 @@
+{
+  "versao_catalogo": "1.0.0",
+  "moeda_padrao": "BRL",
+  "modulos": [
+    {
+      "id": "MOD-DRE",
+      "nome": "DRE Gerencial",
+      "descricao": "Gera a DRE do período e explica variações (receita, CSP/CMV, despesas) com base em dados.",
+      "entradas": [
+        "data/transacoes.csv (com conta, centro_custo, tipo, valor, data/competencia)",
+        "data/plano_contas.json (mapeamento para linhas da DRE)"
+      ],
+      "saidas": [
+        "Tabela DRE (por mês)",
+        "Comparativos (MoM, vs orçamento)",
+        "Insights de variação (drivers)"
+      ],
+      "limitacoes": [
+        "Nao substitui DRE contábil oficial",
+        "Nao calcula impostos oficiais se não houver dados e regras"
+      ],
+      "exemplos_de_perguntas": [
+        "Feche a DRE de 2026-01 (competência).",
+        "Compare a DRE de 2026-01 vs 2025-12 e explique as principais variações.",
+        "Quais despesas administrativas cresceram mais em 2026-01?"
+      ]
+    },
+    {
+      "id": "MOD-CAIXA",
+      "nome": "Fluxo de Caixa e Projeção",
+      "descricao": "Projeta o caixa no curto prazo usando A/R e A/P, listando vencimentos críticos e risco de saldo negativo.",
+      "entradas": [
+        "data/contas_a_receber.csv (titulos, vencimento, valor, status, probabilidade_recebimento opcional)",
+        "data/contas_a_pagar.csv (titulos, vencimento, valor, status)",
+        "saldo inicial (campo em cadastro.json ou informado pelo usuário)"
+      ],
+      "saidas": [
+        "Projeção (diária/semanal)",
+        "Lista de vencimentos críticos",
+        "Alertas de risco de caixa"
+      ],
+      "limitacoes": [
+        "Sem extrato/saldo inicial confiável, a projeção fica limitada",
+        "Nao garante recebimento; depende do status e premissas"
+      ],
+      "exemplos_de_perguntas": [
+        "Projete o caixa dos próximos 30 dias.",
+        "Quais pagamentos vencem esta semana?",
+        "Em quais dias o saldo fica negativo na projeção?"
+      ]
+    },
+    {
+      "id": "MOD-AR",
+      "nome": "Contas a Receber e Inadimplência",
+      "descricao": "Analisa carteira de recebíveis, aging, inadimplência e principais clientes em atraso.",
+      "entradas": [
+        "data/contas_a_receber.csv (cliente, vencimento, valor, status)",
+        "regras de faixas de atraso (configuráveis)"
+      ],
+      "saidas": [
+        "Aging por faixas",
+        "Top clientes inadimplentes",
+        "Alertas e recomendações operacionais de cobrança"
+      ],
+      "limitacoes": [
+        "Nao executa cobrança; apenas recomenda e organiza informação",
+        "Risco de recebimento depende de dados e premissas"
+      ],
+      "exemplos_de_perguntas": [
+        "Mostre aging de contas a receber (0–15, 16–30, 31–60, 60+).",
+        "Top 10 clientes inadimplentes e impacto no caixa.",
+        "Quais clientes pioraram vs mês anterior?"
+      ]
+    },
+    {
+      "id": "MOD-AP",
+      "nome": "Contas a Pagar e Vencimentos",
+      "descricao": "Organiza títulos a pagar, lista vencimentos, atrasos e concentrações por fornecedor.",
+      "entradas": [
+        "data/contas_a_pagar.csv (fornecedor, vencimento, valor, status, conta, centro_custo opcional)"
+      ],
+      "saidas": [
+        "Lista de títulos por vencimento",
+        "Atrasados e dias de atraso",
+        "Top fornecedores por impacto"
+      ],
+      "limitacoes": [
+        "Nao executa pagamento; apenas informa e prioriza",
+        "Requer base atualizada para ser confiável"
+      ],
+      "exemplos_de_perguntas": [
+        "Quais contas a pagar vencem nos próximos 7 dias?",
+        "Liste contas a pagar atrasadas.",
+        "Quais fornecedores mais pesaram no mês?"
+      ]
+    },
+    {
+      "id": "MOD-ORC",
+      "nome": "Orçamento (Realizado vs Orçado)",
+      "descricao": "Compara realizado com orçamento por conta e centro de custo, destacando desvios relevantes.",
+      "entradas": [
+        "data/orcamento_mensal.csv (mes, conta, centro_custo, valor_orcado)",
+        "data/transacoes.csv (realizado por conta/centro de custo)"
+      ],
+      "saidas": [
+        "Tabela realizado vs orçado",
+        "Desvio (valor e %)",
+        "Alertas de estouro de orçamento"
+      ],
+      "limitacoes": [
+        "Sem orçamento registrado, apenas analisa realizado",
+        "Qualidade depende de classificação correta das transações"
+      ],
+      "exemplos_de_perguntas": [
+        "Compare despesas administrativas realizado vs orçado em 2026-01.",
+        "Quais contas estouraram o orçamento este mês?",
+        "Mostre os maiores desvios percentuais por centro de custo."
+      ]
+    },
+    {
+      "id": "MOD-CLASS",
+      "nome": "Classificação e Padronização de Lançamentos",
+      "descricao": "Sugere conta e centro de custo para lançamentos com base em regras, palavras-chave e histórico.",
+      "entradas": [
+        "data/plano_contas.json (contas, centros de custo, regras)",
+        "transacoes com descricao/fornecedor"
+      ],
+      "saidas": [
+        "Sugestões de classificação com justificativa",
+        "Lista de lançamentos pendentes de revisão",
+        "Padrões detectados (fornecedores recorrentes)"
+      ],
+      "limitacoes": [
+        "Sugestões podem exigir revisão humana",
+        "Ações de escrita exigem confirmação e auditoria (se habilitadas)"
+      ],
+      "exemplos_de_perguntas": [
+        "Classifique as transações sem conta e centro de custo.",
+        "Sugira a conta/CC para o lançamento 'Google Workspace'.",
+        "Quais lançamentos estão inconsistentes com o plano de contas?"
+      ]
+    }
+  ],
+  "sugestoes_de_uso": [
+    {
+      "objetivo": "Fechamento mensal",
+      "modulos_recomendados": ["MOD-DRE", "MOD-ORC"],
+      "passos": [
+        "Gerar DRE do mês (competência)",
+        "Comparar com mês anterior",
+        "Comparar com orçamento",
+        "Listar principais desvios e ações"
+      ]
+    },
+    {
+      "objetivo": "Gestão de caixa",
+      "modulos_recomendados": ["MOD-CAIXA", "MOD-AP", "MOD-AR"],
+      "passos": [
+        "Checar vencimentos da semana",
+        "Projetar 30 dias",
+        "Identificar risco de saldo negativo",
+        "Priorizar cobranças e renegociações"
+      ]
+    }
+  ]
+}

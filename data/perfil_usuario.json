@@ -1,0 +1,136 @@
+{
+  "versao_dataset": "1.0.0",
+  "ultima_atualizacao": "2026-01-20",
+  "idioma": "pt-BR",
+
+  "empresa": {
+    "nome_fantasia": "MetalNorte Serviços Industriais",
+    "razao_social": "MetalNorte Servicos Industriais Ltda",
+    "cnpj_ficticio": "12.345.678/0001-90",
+    "setor": "Serviços Industriais (Manutenção B2B)",
+    "porte": "pequeno-medio",
+    "qtd_colaboradores": 80,
+    "sede": {
+      "cidade": "Campinas",
+      "uf": "SP",
+      "pais": "BR"
+    },
+    "moeda": "BRL",
+    "timezone": "America/Sao_Paulo"
+  },
+
+  "usuario": {
+    "nome": "Jao Santos",
+    "cargo": "Analista Financeiro",
+    "nivel_acesso": "operacional",
+    "objetivo_principal": "Apoiar rotinas de fechamento, fluxo de caixa, contas a pagar/receber e análises gerenciais."
+  },
+
+  "preferencias": {
+    "regime_padrao": "competencia",
+    "se_usuario_nao_especificar_regime": "usar_regime_padrao",
+    "granularidade_padrao": "mensal",
+    "periodo_padrao_projecao_caixa_dias": 30,
+    "moeda_formatacao": "pt-BR",
+    "tamanho_max_tabela_linhas": 20,
+    "mostrar_fontes_e_filtros_por_padrao": true,
+    "tom_de_voz": "direto_pratico",
+    "unidade_percentual": "percentual_com_1_casa"
+  },
+
+  "politicas": {
+    "anti_alucinacao": {
+      "regra": "Numeros e listas devem vir de consulta aos dados (tools). Proibido inventar valores.",
+      "quando_faltar_dado": "Responder 'nao consta na base' e informar qual arquivo/campo precisa."
+    },
+
+    "acoes_de_escrita": {
+      "habilitar_escrita_no_mvp": false,
+      "exigir_confirmacao_explicita": true,
+      "confirmacao_padrao_texto": "Posso aplicar essa alteração? Responda: SIM para confirmar ou NAO para cancelar.",
+      "registrar_auditoria": true,
+      "auditoria_campos": ["timestamp", "usuario", "acao", "entidade", "id", "antes", "depois", "justificativa"]
+    },
+
+    "privacidade_e_escopo": {
+      "escopo": [
+        "dre_gerencial",
+        "fluxo_de_caixa",
+        "contas_a_pagar",
+        "contas_a_receber",
+        "inadimplencia_aging",
+        "realizado_vs_orcado",
+        "classificacao_de_lancamentos"
+      ],
+      "fora_do_escopo": [
+        "previsao_do_tempo",
+        "esportes",
+        "noticias_gerais",
+        "assuntos_pessoais_nao_relacionados_a_financas",
+        "aconselhamento_juridico_tributario_definitivo"
+      ],
+      "mensagem_fora_do_escopo": "Eu sou um assistente financeiro corporativo e posso ajudar com DRE, fluxo de caixa, contas a pagar/receber e análises gerenciais. Esse tema está fora do meu escopo."
+    },
+
+    "regras_de_exibicao": {
+      "sempre_incluir": ["fontes", "filtros", "premissas_quando_existirem"],
+      "quando_usar_tabelas": "Sempre que houver listas, rankings, aging ou demonstrativos (DRE/caixa).",
+      "limitar_tabelas": {
+        "max_linhas": 20,
+        "oferecer_download_no_futuro": true
+      }
+    },
+
+    "orientacao_profissional": {
+      "disclaimer": "As análises são gerenciais e baseadas em dados fornecidos. Para decisões contábeis/tributárias oficiais, valide com contador(a) ou consultoria."
+    }
+  },
+
+  "centros_de_custo": [
+    { "codigo": "CC-ADM", "nome": "Administrativo", "descricao": "Financeiro, RH, diretoria, despesas gerais do escritório." },
+    { "codigo": "CC-OPS", "nome": "Operações", "descricao": "Execução dos serviços e custos operacionais indiretos." },
+    { "codigo": "CC-PROD", "nome": "Produção/Serviços", "descricao": "Custos diretamente ligados às ordens de serviço (mão de obra técnica, deslocamento, peças).", "padrao_para_csp": true },
+    { "codigo": "CC-COM", "nome": "Comercial", "descricao": "Vendas, marketing, relacionamento com clientes, propostas e visitas." },
+    { "codigo": "CC-TI", "nome": "Tecnologia (TI)", "descricao": "Softwares, infraestrutura, licenças, suporte e equipamentos de TI." },
+    { "codigo": "CC-LOG", "nome": "Logística", "descricao": "Fretes, transportes, combustível, pedágios e movimentação." }
+  ],
+
+  "regras_padrao_de_classificacao": {
+    "prioridade": [
+      "match_fornecedor_cliente",
+      "match_keywords_descricao",
+      "fallback_manual"
+    ],
+    "keywords": [
+      { "palavras": ["google workspace", "microsoft 365", "aws", "azure", "servidor", "dominio", "licenca"], "conta_sugerida": "DESPESAS_TI_SAAS", "centro_custo_sugerido": "CC-TI", "confianca": 0.85 },
+      { "palavras": ["aluguel", "condominio", "iptu", "limpeza", "seguranca"], "conta_sugerida": "DESPESAS_ADM_OCUPACAO", "centro_custo_sugerido": "CC-ADM", "confianca": 0.75 },
+      { "palavras": ["combustivel", "posto", "pedagio", "estacionamento"], "conta_sugerida": "DESPESAS_LOG_FROTA", "centro_custo_sugerido": "CC-LOG", "confianca": 0.80 },
+      { "palavras": ["juros", "multa", "tarifa", "iof"], "conta_sugerida": "DESPESAS_FINANCEIRAS", "centro_custo_sugerido": "CC-ADM", "confianca": 0.70 },
+      { "palavras": ["comissao", "ads", "marketing", "anuncio"], "conta_sugerida": "DESPESAS_COMERCIAIS", "centro_custo_sugerido": "CC-COM", "confianca": 0.75 }
+    ]
+  },
+
+  "fontes_de_dados_mvp": {
+    "base_conhecimento": {
+      "historico_ou_glossario": "data/historico.csv",
+      "perfil": "data/perfil_usuario.json",
+      "faq": "data/perguntas_frequentes.csv",
+      "catalogo_modulos": "data/produtos_financeiros.json"
+    },
+    "bases_operacionais_futuras": {
+      "transacoes": "data/transacoes.csv",
+      "contas_a_pagar": "data/contas_a_pagar.csv",
+      "contas_a_receber": "data/contas_a_receber.csv",
+      "orcamento_mensal": "data/orcamento_mensal.csv",
+      "plano_contas": "data/plano_contas.json"
+    }
+  },
+
+  "exemplos_de_perguntas_sugeridas": [
+    "Feche a DRE de 2026-01 (competência) e destaque as principais variações.",
+    "Projete o fluxo de caixa dos próximos 30 dias e aponte riscos de saldo negativo.",
+    "Mostre aging de contas a receber por faixa (0–15, 16–30, 31–60, 60+).",
+    "Quais despesas administrativas cresceram mais em 2026-01 vs 2025-12?",
+    "Classifique estas transações sem conta e centro de custo."
+  ]
+}
