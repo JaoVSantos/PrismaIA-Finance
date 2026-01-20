@@ -1,135 +1,155 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# 🤖 Prisma-IA Finance (FinaBot CFO) — Agente Financeiro Inteligente com IA Generativa
 
 ## Contexto
 
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
+Assistentes virtuais no setor financeiro estão evoluindo de chatbots reativos para **agentes inteligentes e proativos**.  
+Este repositório é o protótipo do **Prisma-IA Finance (FinaBot CFO)**, um assistente focado em **finanças corporativas (SMB)** para apoiar rotinas como:
 
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
+- **Entender rapidamente o caixa** (quanto entrou, quanto saiu, resultado do mês)
+- **Organizar e explicar dados** de forma simples (sem exigir linguagem técnica)
+- **Personalizar respostas** com base no contexto da empresa (perfil do usuário)
+- **Evitar alucinações**: números sempre vêm de dados (`CSV/JSON`), não de “achismo”
+- Evoluir para um agente com **IA Generativa + tools** (onde o modelo conversa e o código calcula)
 
 > [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
+> Na pasta [`examples/`](./examples/) você pode manter referências e inspirações de implementação.
 
 ---
 
-## O Que Você Deve Entregar
+## O que este agente resolve (caso de uso)
 
-### 1. Documentação do Agente
+Empresas pequenas e médias normalmente têm dados espalhados e pouco tempo para análise.  
+O PrismaIA Finance ajuda a responder perguntas do dia a dia como:
 
-Defina **o que** seu agente faz e **como** ele funciona:
+- “**Quanto saiu em 2025-12?**”
+- “**Quanto entrou em 2026-01?**”
+- “**Como foi o caixa em 2025-11?**”
+- “Quais módulos/funcionalidades o assistente oferece?”
 
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
-
----
-
-### 2. Base de Conhecimento
-
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
-
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
-
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
-
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
+Hoje (MVP) ele trabalha com **caixa realizado** (entradas/saídas do `transacoes.csv`) e conteúdos de apoio (FAQ e catálogo).  
+Nas próximas etapas, ele evolui para DRE gerencial, orçamento e análises mais completas.
 
 ---
 
-### 3. Prompts do Agente
+## Persona e Tom de Voz
 
-Documente os prompts que definem o comportamento do seu agente:
-
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
-
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
+- **Claro e amigável**, sem termos técnicos desnecessários
+- **Direto e didático**, como alguém do financeiro explicando para qualquer pessoa
+- Sempre propõe **próximos passos** (ex.: pedir um mês, explicar o que falta no dado)
+- Quando algo está fora do escopo (ex.: previsão do tempo), responde com educação e redireciona
 
 ---
 
-### 4. Aplicação Funcional
+## Como evitar “alucinações” (segurança)
 
-Desenvolva um **protótipo funcional** do seu agente:
+Regras do projeto:
 
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
+- **NÚMEROS** (entradas/saídas/totais) só aparecem quando o cálculo vem dos dados (`CSV`).
+- Se faltar dado, o agente responde: **“não encontrei essa informação na base”** e diz o que precisa ser adicionado.
+- Perguntas fora do escopo são recusadas com educação.
+- O MVP não faz ações destrutivas nem altera dados automaticamente.
 
 ---
 
-### 6. Pitch
+## O que você deve entregar (no estilo deste projeto)
 
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
+### 1) Documentação do Agente
+Defina **o que** o agente faz e **como** ele funciona:
 
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
+- Caso de uso (finanças corporativas SMB)
+- Persona / Tom de voz
+- Arquitetura (fluxo de dados)
+- Segurança (anti-alucinação, escopo)
 
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
-
----
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
+📄 Arquivo: [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
 
 ---
 
-## Estrutura do Repositório
+### 2) Base de Conhecimento (dados mockados)
 
-```
-📁 lab-agente-financeiro/
+Os dados ficam na pasta [`data/`](./data/). Este projeto usa:
+
+| Arquivo | Formato | Para que serve |
+|--------|---------|----------------|
+| `transacoes.csv` | CSV | Base para cálculo de **caixa realizado** (entradas/saídas por período) |
+| `historico.csv` | CSV | Glossário / histórico textual (apoio para respostas consistentes e didáticas) |
+| `perfil_usuario.json` | JSON | Contexto da empresa e políticas do agente (defaults e segurança) |
+| `produtos_financeiros.json` | JSON | Catálogo de módulos/funcionalidades do assistente |
+| `perguntas_frequentes.csv` | CSV | Banco de perguntas/respostas (FAQ), usado como “memória de ajuda” |
+
+📄 Arquivo: [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
+
+---
+
+### 3) Prompts do Agente (fase IA Generativa)
+Documente os prompts que definem comportamento e restrições:
+
+- System Prompt (regras e segurança)
+- Exemplos de interação (entrada/saída esperada)
+- Edge cases (fora do escopo, falta de dados)
+
+📄 Arquivo: [`docs/03-prompts.md`](./docs/03-prompts.md)
+
+> Obs.: O MVP atual funciona sem LLM. A parte de prompts entra na fase 2, quando integrar IA Generativa.
+
+---
+
+### 4) Aplicação Funcional
+
+O protótipo está na pasta [`src/`](./src/), usando **Streamlit**.
+
+✅ O app foi pensado para aceitar **texto livre** e entender perguntas simples do dia a dia, como:
+- “quanto saiu em 2025-12”
+- “quanto entrou em 2026-01”
+- “como foi o caixa em 2025-11”
+
+📁 Pasta: [`src/`](./src/)  
+📄 Arquivo: [`src/app.py`](./src/app.py)
+
+---
+
+### 5) Avaliação e Métricas
+
+A qualidade do agente é medida por:
+- Assertividade (responder o que foi pedido)
+- Segurança (não inventar números, recusar fora do escopo)
+- Clareza (resposta fácil de entender)
+- Consistência (mesmo padrão em respostas parecidas)
+
+📄 Arquivo: [`docs/04-metricas.md`](./docs/04-metricas.md)
+
+
+
+## Como rodar o projeto (local)
+
+Na raiz do repositório:
+
+pip install streamlit pandas
+streamlit run src/app.py
+
+### 📂 Estrutura do Repositório
+
+```text
+📁 PRISMAIA-FINANCE/
 │
 ├── 📄 README.md
 │
 ├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
+│   ├── historico.csv                 # Glossário/histórico (CSV)
+│   ├── perfil_usuario.json           # Perfil da empresa/usuário (JSON)
+│   ├── produtos_financeiros.json     # Catálogo de módulos (JSON)
+│   ├── perguntas_frequentes.csv      # FAQ (CSV)
+│   └── transacoes.csv                # Transações para cálculo de caixa (CSV)
 │
 ├── 📁 docs/                          # Documentação do projeto
 │   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
 │   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
+│   ├── 03-prompts.md                 # Engenharia de prompts (fase 2)
 │   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
+│   └── 05-pitch.md                   # (opcional) roteiro do pitch
 │
 ├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
+│   └── app.py                        # Streamlit (MVP)
 │
 ├── 📁 assets/                        # Imagens e diagramas
 │   └── ...
@@ -138,12 +158,17 @@ Todas as ferramentas abaixo possuem versões gratuitas:
     └── README.md
 ```
 
+### 🔐 Segurança e Confiabilidade
+
+- Não há uso de LLMs
+- Não há geração de texto livre
+- Todas as respostas são previamente definidas
+- Perguntas fora do escopo recebem respostas neutras e seguras
+
+Isso garante:
+
+- previsibilidade
+- controle
+- ausência de alucinações
+
 ---
-
-## Dicas Finais
-
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
